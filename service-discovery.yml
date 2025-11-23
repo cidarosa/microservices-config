@@ -1,0 +1,14 @@
+server:
+  port: 8761 # CORREÇÃO: Porta padrão para o Eureka Server.
+eureka: 
+  instance: 
+    hostname: localhost
+  client:
+  # CORREÇÃO: O servidor não deve se registrar ou buscar em si mesmo
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl: 
+    # O cliente embutido usa o hostname e a porta que definimos acima (8761)
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 3000

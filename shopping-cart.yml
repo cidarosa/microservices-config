@@ -1,0 +1,15 @@
+server:
+  port: 8082 # Porta do microservice
+    
+eureka:
+  instance: 
+    hostname: localhost
+    # PORTA REMOVIDA
+  client:
+    registerWithEureka: true
+    fetchRegistry: true # CORRIGIDO: O cliente precisa buscar outros servios
+    serviceUrl:
+      # CORRIGIDO: Aponta para o Eureka Server na porta 8761
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+    
+    # PROPRIEDADE SERVER REMOVIDA
